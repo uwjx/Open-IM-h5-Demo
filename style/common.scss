@@ -1,0 +1,98 @@
+
+
+// 定义字体(rpx)单位，大于或等于20的都为rpx单位字体
+@for $i from 20 through 40 {
+	.s-font-#{$i} {
+		font-size: $i + rpx;
+	}
+}
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.s-margin-#{$i}, .s-m-#{$i} {
+			margin: $i + rpx!important;
+		}
+		
+		// 得出：u-padding-30或者u-p-30
+		.s-padding-#{$i}, .s-p-#{$i} {
+			padding: $i + rpx!important;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： u-m-l-30
+			// 定义外边距
+			.s-m-#{$short}-#{$i} {
+				margin-#{$long}: $i + rpx!important;
+			}
+			
+			// 定义内边距
+			.s-p-#{$short}-#{$i} {
+				padding-#{$long}: $i + rpx!important;
+			}
+			
+			// 完整版，结果如：u-margin-left-30
+			// 定义外边距
+			.s-margin-#{$long}-#{$i} {
+				margin-#{$long}: $i + rpx!important;
+			}
+			
+			// 定义内边距
+			.s-padding-#{$long}-#{$i} {
+				padding-#{$long}: $i + rpx!important;
+			}
+		}
+	}
+}
+
+
+.s-tabBar-item-slot-icon{
+	width: 26px;
+	height: 26px;
+}
+
+.s-navbar-shadow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 0 2rpx 8rpx 0 rgba($color: #000000, $alpha: 0.15);
+	height: 80px;
+	width: 100%;	
+}
+.s-nav-left { padding-left: 44rpx;}
+.s-nav-right { padding-right: 44rpx; }
+	
+.s-spacing-col-lr {padding: 0 44rpx;}	
+
+.s-flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+}
+.s-flex-wrap {flex-wrap: wrap;}
+.s-flex-nowrap { flex-wrap: nowrap;}
+.s-col-top { align-items: flex-start;}
+.s-col-center { align-items: center;}
+.s-col-bottom { align-items: flex-end;}
+.s-row-left {justify-content: flex-start;}
+.s-row-center {justify-content: center;}
+.s-row-right {justify-content: flex-end;}
+.s-row-between {justify-content: space-between;}
+.s-row-around {justify-content: space-around;}
+.s-item-noshrink { flex: 0 0 auto }
+.s-item-fill { flex: 1 1 auto }
+
+.s-weight-500 { font-weight: 500; }
+.s-weight-600 { font-weight: 600; }
+
+.s-bg-white { background-color: #FFFFFF;}
+.s-bg-grey { background-color: #F8F8F8;}
+
+.s-text-center { text-align: center;}
+.s-width-fill { width: 100%;}
+ 
+	
+	
+	
